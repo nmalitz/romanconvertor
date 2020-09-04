@@ -1,6 +1,11 @@
 def fromRoman(romanNumber)
-    raise TypeError if romanNumber =~ /[^IVXLCDM]*/
-    raise NotImplementedError
+    if /^[^IVXLCDM]+$/.match(romanNumber) | ''.match(romanNumber)
+        raise TypeError
+    end
+
+    #raise NotImplementedError
+
+    1
 end
 
 def toRoman(arabicNumber)
