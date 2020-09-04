@@ -1,5 +1,5 @@
 def fromRoman(romanNumber)
-    raise TypeError if romanNumber =~ /^[^IVXLCDM]$/
+    raise TypeError if romanNumber =~ /[^IVXLCDM]*/
     raise NotImplementedError
 end
 
