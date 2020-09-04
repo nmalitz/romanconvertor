@@ -1,4 +1,4 @@
-def convert(roman_digit)
+private def convert_from(roman_digit)
     1000 if roman_digit == 'M'
     500 if roman_digit == 'D'
     100 if roman_digit == 'C'
@@ -8,17 +8,18 @@ def convert(roman_digit)
     1 if roman_digit == 'I'
 end
 
-def fromRoman(romanNumber)
-    if /^[^IVXLCDM]+$/.match(romanNumber) | ''.match(romanNumber)
+def fromRoman(roman_number)
+    if /^[^IVXLCDM]+$/.match(roman_number).nil? == false | roman_number.empty?
         raise TypeError
     end
 
     total = 0
     index = 0
-    while index <= romanNumber.length
-        left = convert(romanNumber[index])
-        if index + 1 <= romanNumber.length
-            right = convert(romanNumber[index + 1])
+    while index <= roman_number.length
+        left = convert_from(roman_number[index])
+        if index + 1 <= roman_number.length
+            right_index = index + 1
+            right = convert_from(roman_number[right_index])
             if left >= right
                 total += left
                 index += 1
@@ -32,7 +33,6 @@ def fromRoman(romanNumber)
         end
     end
     total
-    #raise NotImplementedError
 end
 
 def toRoman(arabicNumber)
