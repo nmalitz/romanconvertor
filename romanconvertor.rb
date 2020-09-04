@@ -16,10 +16,10 @@ def fromRoman(roman_number)
     roman_character_array = roman_number.split('')
     total = 0
     index = 0
-    while index <= roman_character_array.length
+    while index < roman_character_array.length
         left = convert_from(roman_character_array[index])
         right_index = index + 1
-        if right_index <= roman_character_array.length
+        if right_index < roman_character_array.length
             right = convert_from(roman_character_array[right_index])
             if left >= right
                 total += left
